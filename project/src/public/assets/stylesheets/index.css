@@ -7,18 +7,29 @@ body {
   min-height: 100vh;
 }
 
-header {
-  /* header styles */
+
+h1:hover {
+  background-color: black;
+  color: white;
 }
+
+img {
+  padding: 10%;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+
+img:hover {
+  transform: scale(1.5);
+}
+
 
 main {
   flex: 1;
   padding: 20px;
 }
 
-footer {
-  /* footer styles */
-}
 
 /* -------------------  TABLET  --------------------- */
 @media (min-width: 768px) {
