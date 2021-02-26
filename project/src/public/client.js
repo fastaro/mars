@@ -12,22 +12,22 @@ const updateStore = (state, newState) => {
 }
 
 const render = async (root, state) => {
-    root.innerHTML = App(state);
+    root.innerHTML = App(state, displayHeader, displayData);
 }
 
 
-// App Starts
-const App = (state) => {
+// Higher order function made to simplify page
+const App = (state, header, body) => {
     return `
     <header>
     <div class="container">
         <div class="row">
-        ${displayHeader(state)}
+        ${header()}
         </div>
     </div>
     </header>
     <div class="container">
-        ${displayData(state)}
+        ${body()}
     </div>
     <footer></footer>
     `
@@ -44,15 +44,15 @@ const roverClicked = (rover) => {
     getRoverData(rover);
 };
 
-const displayHeader = (state) => {
-        return state.get("rovers")
+const displayHeader = () => {
+        return store.get("rovers")
             .map((rover) => `
             <h1 class="col-lg-4 col-sm" onClick=roverClicked("${rover}") href="#">${rover}</h1>
             `)
             .reduce((rarray, rover) => rarray += rover);
     }
 
-const displayData = (store) => {
+const displayData = () => {
     try {
         let str = "";
     if ( store.get("currentRover") === 'Curiosity') {
