@@ -82,6 +82,7 @@ const displayData = () => {
                 <img src= ${store.getIn(['roversData','image','latest_photos']).get(i).get('img_src')} alt= "" ></img> 
                 </div>`
     }
+
         }
     }
      else {
