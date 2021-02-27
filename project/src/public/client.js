@@ -55,7 +55,6 @@ const displayHeader = () => {
 const displayData = () => {
     try {
         let str = "";
-    if ( store.get("currentRover") != 'Spirit') {
         str += `<h3>Name: ${store.getIn(['roversData','image','latest_photos']).get(0).get('rover').get('name')}</h3>
         <h3>Launch Date: ${store.getIn(['roversData','image','latest_photos']).get(0).get('rover').get('launch_date')}</h3>
         <h3>Landing Date: ${store.getIn(['roversData','image','latest_photos']).get(0).get('rover').get('landing_date')}</h3>
@@ -84,35 +83,7 @@ const displayData = () => {
     }
 
         }
-    }
-     else {
-        str += `<h3>Name: ${store.getIn(['roversData','image','photos']).get(0).get('rover').get('name')}</h3>
-        <h3>Launch Date: ${store.getIn(['roversData','image','photos']).get(0).get('rover').get('launch_date')}</h3>
-        <h3>Landing Date: ${store.getIn(['roversData','image','photos']).get(0).get('rover').get('landing_date')}</h3>
-        <h3>Status: ${store.getIn(['roversData','image','photos']).get(0).get('rover').get('status')}</h3>
-        <h3>Photos Taken: ${store.getIn(['roversData','image','photos']).get(0).get('earth_date')}</h3>
-        `
-        for( let i = 0; i< store.getIn(['roversData','image','photos']).size; i++){
-            if(i % 3 == 0){
-                str += `
-                <div class="row">
-                <div class="col-lg-6 col-sm-4">
-                <img src= ${store.getIn(['roversData','image','photos']).get(i).get('img_src')} alt= "" ></img> 
-                </div>`
-            }
-            if(i % 3 == 2){
-                str += `<div class="col-lg-6 col-sm">
-                <img src= ${store.getIn(['roversData','image','photos']).get(i).get('img_src')} alt= "" ></img> 
-                </div>
-                </div>`
-            }
-            else {
-                str += `<div class="col-lg-6 col-sm">
-                <img src= ${store.getIn(['roversData','image','photos']).get(i).get('img_src')} alt= "" ></img> 
-                </div>`
-            }
-        }
-     }
+
      return str;
     }
     catch {
