@@ -27,7 +27,7 @@ app.get('/curiosity', async (req, res) => {
 
 app.get('/opportunity', async (req, res) => {
     try {
-        const image = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?earth_date=2018-06-04&api_key=${process.env.API_KEY}`)
+        const image = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/latest_photos?api_key=${process.env.API_KEY}`)
             .then(res => res.json())
         res.send({ image })
     } catch (err) {
@@ -37,7 +37,7 @@ app.get('/opportunity', async (req, res) => {
 
 app.get('/spirit', async (req, res) => {
     try {
-        const image = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?earth_date=2010-02-01&api_key=${process.env.API_KEY}`)
+        const image = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/latest_photos?api_key=${process.env.API_KEY}`)
             .then(res => res.json())
         res.send({ image })
     } catch (err) {

@@ -55,7 +55,7 @@ const displayHeader = () => {
 const displayData = () => {
     try {
         let str = "";
-    if ( store.get("currentRover") === 'Curiosity') {
+    if ( store.get("currentRover") != 'Spirit') {
         str += `<h3>Name: ${store.getIn(['roversData','image','latest_photos']).get(0).get('rover').get('name')}</h3>
         <h3>Launch Date: ${store.getIn(['roversData','image','latest_photos']).get(0).get('rover').get('launch_date')}</h3>
         <h3>Landing Date: ${store.getIn(['roversData','image','latest_photos']).get(0).get('rover').get('landing_date')}</h3>
@@ -86,7 +86,6 @@ const displayData = () => {
         }
     }
      else {
-         console.log();
         str += `<h3>Name: ${store.getIn(['roversData','image','photos']).get(0).get('rover').get('name')}</h3>
         <h3>Launch Date: ${store.getIn(['roversData','image','photos']).get(0).get('rover').get('launch_date')}</h3>
         <h3>Landing Date: ${store.getIn(['roversData','image','photos']).get(0).get('rover').get('landing_date')}</h3>
